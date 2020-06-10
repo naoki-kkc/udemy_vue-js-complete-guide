@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>section2_27</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <div id="app">
+        <p>{{counter}}</p>
+        <button @click="counter++">カウントアップ(computedが実行されない、watchで3秒後に0になる)</button>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data:{
+                counter: 0,
+            },
+            computed: {
+                lessThanThreeC: function(){
+                    // 依存関係の値が変更されると実行される
+                    console.log("computed");
+                    return this.counter > 3 ? "3より多い" : "3以下";
+                }
+            },
+            watch:{
+                counter: function(){
+                    var v = this;
+                    setTimeout(function(){
+                        v.counter = 0;
+                    }, 3000);
+                }
+            }
+        })
+    </script>
+</body>
+</html>
