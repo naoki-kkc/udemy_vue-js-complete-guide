@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>section2_9</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <div id="app">
+        <p>{{message}}</p>
+        <p>{{number + 3}}</p>
+        <p>{{ok ? 'yes' : 'no'}}</p>
+        <p>{{sayHi()}}</p>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data:{
+                message: 'HelloWorld!',
+                number:  5,
+                ok:      true,
+            },
+            methods:{
+                sayHi: function(){
+                    return 'Hi!';
+                }
+            }
+        })
+    </script>
+</body>
+</html>
