@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>section2_23</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <div id="app">
+       <p>現在{{count}}回クリックされました</p>
+       <button v-on:click="countUp">カウントアップ(v-on:click)</button>
+       <br>
+       <button @click="countUp">カウントアップ(@click)</button>
+        
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data:{
+                count: 0
+            },
+            methods: {
+                countUp: function(){
+                    this.count = this.count + 1;
+                },
+            }
+        })
+    </script>
+</body>
+</html>
