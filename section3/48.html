@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>section3_46</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <div id="app">
+        <p>効率よくレンダリングする場合、テキストの内容が削除に対応しない</p>
+        <button @click="removeTop">先頭を削除</button>
+        <ul>
+            <div v-for="f of fruits">
+            <li>{{f}}</li>
+            <input type="text">
+        </div>
+        </ul>
+        <hr>
+        <p>key属性があればテキストの内容も削除に対応する</p>
+        <button @click="removeTop2">先頭を削除</button>
+        <ul>
+            <div v-for="f of fruits2" :key="f">
+            <li>{{f}}</li>
+            <input type="text">
+        </div>
+        </ul>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data:{
+                fruits:['apple', 'banana', 'grape'],
+                fruits2:['apple', 'banana', 'grape'],
+            },
+            methods:{
+                removeTop: function(){
+                    this.fruits.shift();
+                },
+                removeTop2: function(){
+                    this.fruits2.shift();
+                }
+            }
+        })
+    </script>
+</body>
+</html>
