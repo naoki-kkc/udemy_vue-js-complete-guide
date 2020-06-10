@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>section2_26</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <div id="app">
+        <button @click="counter++">カウントアップ</button>
+        <p>{{counter}}</p>
+        <p>mustache内三項演算子：{{counter > 3 ? "3より多い" : "3以下"}}</p>
+        <p>methods内三項演算子：{{lessThanThreeM()}}</p>
+        <p>computed内三項演算子：{{lessThanThreeC}}</p>
+        <hr>
+        <button @click="counter2++">カウントアップ2(関連がないはずのlessThanThreeMが実行される)</button>
+        <p>{{counter2}}</p>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data:{
+                counter: 0,
+                counter2: 0,
+            },
+            methods:{
+                lessThanThreeM: function(){
+                    // 画面が少しでも再描画されると毎回実行される
+                    console.log("lessThanThreeM exec");
+                    return this.counter > 3 ? "3より多い" : "3以下";
+                }
+            },
+            computed: {
+                lessThanThreeC: function(){
+                    // 依存関係の値が変更されると実行される
+                    console.log("lessThanThreeC exec");
+                    return this.counter > 3 ? "3より多い" : "3以下";
+                }
+            }
+        })
+    </script>
+</body>
+</html>
