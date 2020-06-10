@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>section4_54</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <div id="app">
+        <p>{{message}}</p>
+        <p>{{name}}</p>
+    </div>
+
+    <script>
+
+        // vueインスタンスのdataは外部で定義することもできる
+        // -> リアクティブにするにはvueインスタンス生成前に定義すること
+        var d = {
+            name: "taro",
+            message: "good morning",
+        };
+
+        var vm = new Vue({
+            el: '#app',
+            // data:{
+            //     name: "taro",
+            //     message: "good morning"
+            // },
+            data: d,
+        })
+
+        // 出力された内容のうち「$」が接頭辞となっているプロパティがユーザー定義
+        console.log(vm);
+
+        // dataの中身を取得できる
+        console.log(vm.$data);
+        console.log(vm.$data.name);
+        console.log(vm.$data.message);
+
+    </script>
+</body>
+</html>
