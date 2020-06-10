@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>section2_20</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <div id="app">
+        <p>・stopPropagetion / stop</p>
+        <p v-on:mousemove="changeMousePosition">このテキストにマウスを載せると反応しますが、<span v-on:mousemove="noEvent">[ここの部分だけ反応しない(noEvent())]</span>ようになっています。</p>
+        <p v-on:mousemove="changeMousePosition">このテキストにマウスを載せると反応しますが、<span v-on:mousemove.stop>[ここの部分だけ反応しない(.stop)]</span>ようになっています。</p>
+        <p>x={{x}}, y={{y}}</p>
+        <hr>
+        <p>・preventDefault / prevent</p>
+        <a href="https://google.com/" v-on:click="noJump">googleへ飛べない(noJump())</a>
+        <br>
+        <a href="https://google.com/" v-on:click.prevent>googleへ飛べない(prevent)</a>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data:{
+                x: 0,
+                y: 0,
+            },
+            methods: {
+                changeMousePosition: function(event){
+                    this.x = event.clientX;
+                    this.y = event.clientY;
+                },
+                noEvent: function(event){
+                    event.stopPropagation();
+                },
+                noJump: function(event){
+                    event.preventDefault()
+                }
+            }
+        })
+    </script>
+</body>
+</html>
