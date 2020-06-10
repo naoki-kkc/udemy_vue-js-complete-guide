@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>section3_39</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <div id="app">
+        <p v-if="show">hoge</p>
+        <p v-if="show">fuga</p>
+        <p v-if="show">foo</p>
+        <p v-if="show">bar</p>
+        <hr>
+        <template v-if="show">
+            <p>hoge</p>
+            <p>fuga</p>
+            <p>foo</p>
+            <p>bar</p>
+        </template>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data:{
+                show: true,
+            },
+        })
+    </script>
+</body>
+</html>
