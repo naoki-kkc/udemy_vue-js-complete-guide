@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>section4_52</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <div id="app1">
+        {{message}}
+    </div>
+    
+    <hr>
+    
+    <div id="app2">
+        {{message}}
+        <button @click="changeMessage">vm1 message change</button>
+    </div>
+
+    <script>
+        var vm1 = new Vue({
+            el: '#app1',
+            data:{
+               message: "app1 is here"
+            },
+        })
+        
+        var vm2 = new Vue({
+            el: '#app2',
+            data:{
+                message: "app2 is here"
+            },
+            methods: {
+                changeMessage: function(){
+                    vm1.message = "vm1.message change from vm2"
+                }
+            }
+        })
+    </script>
+</body>
+</html>
