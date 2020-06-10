@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>section4_51</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <div id="app1">
+        {{message}}
+    </div>
+    
+    <hr>
+    
+    <div id="app2">
+        {{message}}
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app1',
+            data:{
+               message: "app1 is here"
+            },
+        })
+
+        new Vue({
+            el: '#app2',
+            data:{
+                message: "app2 is here"
+            },
+        })
+    </script>
+</body>
+</html>
