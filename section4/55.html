@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>section4_55</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <div id="app">
+        <p>{{message}}</p>
+        <p>{{name}}</p>
+        <p>{{showData}}</p>
+    </div>
+
+    <script>
+
+        var d = {
+            name: "taro",
+            message: "good morning",
+        };
+
+        var vm = new Vue({
+            el: '#app',
+            data: d,
+            computed:{
+                showData: function(){
+                    // vueインスタンスの中からdataにアクセスするときは「this」
+                    return this.$data;
+                }
+            }
+        })
+
+        // vueインスタンスの外からdataにアクセスするときは「vm.$data」
+        console.log(vm.$data)
+
+    </script>
+</body>
+</html>
