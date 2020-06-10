@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>section2_25</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <div id="app">
+        <button @click="counter++">カウントアップ</button>
+        <p>{{counter}}</p>
+        <p>mustache内三項演算子：{{counter > 3 ? "3より多い" : "3以下"}}</p>
+        <p>computed内三項演算子：{{lessThanThree}}</p>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data:{
+                counter: 0
+            },
+            computed: {
+                lessThanThree: function(){
+                    return this.counter > 3 ? "3より多い" : "3以下";
+                }
+            }
+        })
+    </script>
+</body>
+</html>
