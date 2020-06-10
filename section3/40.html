@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>section3_40</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <div id="app">
+        <p>show:{{show}}</p><button @click="show = !show">toggle show</button>
+        <hr>
+        <p>v-if start</p>
+        <p v-if="show">v-if</p>
+        <p>v-if end</p>
+        <hr>
+        <p>v-show start</p>
+        <p v-show="show">v-show</p>
+        <p>v-show end</p>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data:{
+                show: true,
+            },
+        })
+    </script>
+</body>
+</html>
