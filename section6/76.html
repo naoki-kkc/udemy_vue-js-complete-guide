@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>section6_76</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <div id="app">
+        <local-component></local-component>
+        <local-component></local-component>
+        <local-component></local-component>
+    </div>
+
+
+    <script>
+
+        var component = {
+            data: function(){
+                return {
+                    num: 10, // <- 関数でreturnすることで、コンポーネント間のデータを意図せず共有しないようにしている
+                }
+            },
+            template: '<p>[local component] いいね({{num}})<button @click="countup">countup</button></p>',
+            methods: {
+                countup: function(){
+                    this.num += 1;
+                }
+            }
+        };
+
+        new Vue({
+            el: "#app",
+            components:{
+                'local-component': component
+            }
+        })
+
+    </script>
+</body>
+</html>
