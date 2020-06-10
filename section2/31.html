@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>section2_31</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <div id="app">
+        <h1 style="color:red; background-color:blue;">Hello(direct)</h1>
+        <h1 :style="{color:textColor, 'background-color':bgColor}">Hello(bind)</h1>
+        
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data:{
+                textColor: 'red',
+                bgColor: 'blue',
+            },
+            computed:{
+            }
+        })
+    </script>
+    <style>
+        .red{
+            color:red;
+        }
+        .bg-blue{
+            background-color: blue;
+        }
+    </style>
+</body>
+</html>
