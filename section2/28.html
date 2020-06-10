@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>section2_28</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <div id="app">
+        <p>{{counter}}</p>
+        <!-- メソッド指定時はカッコはあってもなくてもいい -->
+        <!-- Vue.js的書き方 -->
+        <button @click="countUp">countUp</button>
+        <!-- js的書き方 -->
+        <button @click="countUp()">countUp()</button>
+        <hr>
+        <p>double is...</p>
+        <!-- computedはカッコなし -->
+        <p>computed:{{doubleC}}</p>
+        <!-- methodsはカッコあり -->
+        <p>method:{{doubleM()}}</p>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data:{
+                counter: 0,
+            },
+            methods: {
+                countUp: function(){
+                    this.counter = this.counter + 1;
+                },
+                doubleM: function(){
+                    return this.counter * 2;
+                }
+            },
+            computed: {
+                doubleC: function(){
+                    return this.counter * 2;
+                }
+            }
+        })
+    </script>
+</body>
+</html>
