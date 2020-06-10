@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>section2_19</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <div id="app">
+        <p>現在のカウント:{{count}}</p>
+        <button v-on:click="countUp(1, $event)">add 1</button>
+        <button v-on:click="countUp(3, $event)">add 3</button>
+        <button v-on:click="countUp(5, $event)">add 5</button>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data:{
+                count: 0,
+            },
+            methods: {
+                countUp: function(addnum, event){
+                    this.count = this.count + addnum;
+                }
+            }
+        })
+    </script>
+</body>
+</html>
