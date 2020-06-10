@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>section4_53</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <div id="app">
+        <p>{{message}}</p>
+        <p>{{name}}</p>
+        <!-- 変更できる -->
+        <button @click="message = 'message changeed'">message change</button>
+        <!-- 変更できない -->
+        <button @click="name = 'name changeed'">name change</button>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data:{
+                // vueのインスタンス作成時にgettter/setterが生成されて、リアクティブになる
+                // -> 生成後にプロパティを追加しても、getter/setterが作成されないため、リアクティブにならない
+               message: "good morning"
+            },
+        })
+
+        // 元からdataにあるのでリアクティブ
+        vm.message = "good night";
+        
+        // 後から差し込んだプロパティはリアクティブにならない
+        vm.name = "addname";
+
+        // devtoolのconsoleからgetter/setterが確認可能
+        console.log(vm);
+
+    </script>
+</body>
+</html>
