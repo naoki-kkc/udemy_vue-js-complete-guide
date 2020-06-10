@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>section3_38</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <div id="app">
+        <button @click="ok = !ok">toggle ok</button>
+        <button @click="ok2 = !ok2">toggle ok2</button>
+        <p>ok={{ok}}, ok2={{ok2}}</p>
+        <p v-if="ok">ok</p>
+        <p v-else-if="ok2">else if ok</p>
+        <p v-else>not ok</p>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data:{
+                ok: false,
+                ok2: false,
+            },
+        })
+    </script>
+</body>
+</html>
