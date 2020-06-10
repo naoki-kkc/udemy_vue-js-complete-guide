@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>section6_74</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <div class="app">
+        <!-- こっちには描画される -->
+    </div>
+    <div class="app">
+        <!-- こっちには描画されない(Vue.jsのelは最初に引っかかったものが有効) -->
+    </div>
+
+    <hr>
+
+    <div id="app2">
+        <!-- コンポーネントなら複数回書ける -->
+        <my-component></my-component>
+        <my-component></my-component>
+        <my-component></my-component>
+        <my-component></my-component>
+    </div>
+
+
+
+
+    <script>
+
+        var vm = new Vue({
+            el: '.app',
+            data: {
+                num: 10,
+            },
+            template: '<p>いいね({{num}})</p>'
+        })
+
+        Vue.component('my-component', {
+            data: function(){
+                return {
+                    num: 20
+                }
+            },
+            template: '<p>いいね({{num}})</p>'
+        })
+
+        new Vue({
+            el: "#app2"
+        })
+
+    </script>
+</body>
+</html>
