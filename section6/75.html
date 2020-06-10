@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>section6_75</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <div id="app">
+        <my-component></my-component>
+        <my-component></my-component>
+        <my-component></my-component>
+        <my-component></my-component>
+    </div>
+
+    <hr>
+
+    <div id="app2">
+        <my-component2></my-component2>
+        <my-component2></my-component2>
+        <my-component2></my-component2>
+        <my-component2></my-component2>
+    </div>
+
+
+    <script>
+
+        // コンポーネント間で情報を共有してしまったダメな例
+
+        var data = {
+            num: 10
+        }
+
+        Vue.component('my-component', {
+            data: function(){
+                return data;
+            },
+            template: '<p>いいね({{num}})<button @click="countup">countup</button></p>',
+            methods: {
+                countup: function(){
+                    this.num += 1;
+                }
+            }
+
+        })
+
+        new Vue({
+            el: "#app"
+        })
+
+        Vue.component('my-component2', {
+            data: function(){
+                return {
+                    num: 10, // <- 関数でreturnすることで、コンポーネント間のデータを意図せず共有しないようにしている
+                }
+            },
+            template: '<p>いいね({{num}})<button @click="countup">countup</button></p>',
+            methods: {
+                countup: function(){
+                    this.num += 1;
+                }
+            }
+
+        })
+
+        new Vue({
+            el: "#app2"
+        })
+
+    </script>
+</body>
+</html>
