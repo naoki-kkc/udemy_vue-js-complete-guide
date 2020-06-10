@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>section2_13</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <div id="app">
+        <div>{{htmlstr}}</div>
+        <!-- XSS脆弱性の元となるため、ユーザーの入力をv-htmlで出力しない -->
+        <div v-html="htmlstr"></div>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data:{
+                htmlstr: '<h1>this is h1 text</h1>'
+            }
+        })
+    </script>
+</body>
+</html>
