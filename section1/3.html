@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>section1_2</title>
+</head>
+<body>
+    
+    <div id="app">
+        <button v-on:click="reverseMessage">reverse message</button>
+        <p>{{message}}</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data:{
+                message: 'HelloWorld!'
+            },
+            methods:{
+                reverseMessage: function(){
+                    this.message = this.message.split('').reverse().join('');
+                }
+            }
+        })
+    </script>
+</body>
+</html>
