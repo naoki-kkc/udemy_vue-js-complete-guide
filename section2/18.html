@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>section2_18</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <div id="app">
+        <p v-on:mousemove="changeMousePosition">マウスを乗せてください</p>
+        <p>x={{x}}, y={{y}}</p>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data:{
+                x:0,
+                y:0,
+            },
+            methods: {
+                changeMousePosition: function(event){
+                    this.x = event.clientX;
+                    this.y = event.clientY;
+                }
+            }
+        })
+    </script>
+</body>
+</html>
