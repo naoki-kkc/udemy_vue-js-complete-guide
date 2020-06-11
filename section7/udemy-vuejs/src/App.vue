@@ -2,8 +2,10 @@
   <div>
     <LikeHeader></LikeHeader>
     <p>{{num}}</p>
-    <LikeNum v-bind:num="num"></LikeNum>
-    <LikeNum :num="num"></LikeNum>
+    <!-- 属性名をキャメルケースで書く -->
+    <LikeNum v-bind:totalNumber="num"></LikeNum>
+    <!-- 属性名をケバブケースで書く(こっちの方が良い) -->
+    <LikeNum v-bind:total-number="num"></LikeNum>
   </div>
 </template>
 
