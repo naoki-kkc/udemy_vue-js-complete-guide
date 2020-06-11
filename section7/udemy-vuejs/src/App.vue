@@ -3,7 +3,7 @@
     <LikeHeader></LikeHeader>
     <p>{{num}}</p>
     <!-- 属性名をキャメルケースで書く -->
-    <LikeNum v-bind:totalNumber="num"></LikeNum>
+    <LikeNum v-bind:totalNumber="num" test-props="test"></LikeNum>
     <!-- 属性名をケバブケースで書く(こっちの方が良い) -->
     <LikeNum v-bind:total-number="num"></LikeNum>
     <!-- totalNumberを指定していないのでデフォルトを使用する -->

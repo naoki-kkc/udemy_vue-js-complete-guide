@@ -1,6 +1,7 @@
 <template>
     <div>
         <p>いいね({{halfnum}})</p>
+        <p v-if="testProps != ''">{{testProps}}</p>
         <button @click="increment">+1</button>
     </div>
 </template>
@@ -9,13 +10,16 @@
 export default{
     
     // propsを配列で指定
-    // props: ['totalNumber'],
+    // props: ['totalNumber', 'testProps],
     
     // propsをオブジェクトで指定
     props :{
         totalNumber: {
             type:     Number,
             default:  10
+        },
+        testProps: {
+            type: String,
         }
     },
 
