@@ -30,7 +30,7 @@ export default{
     },
     methods: {
         increment(){
-            this.num += 1;
+            this.$emit("increment", this.totalNumber + 1);
         }
     }
 }
