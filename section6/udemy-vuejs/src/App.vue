@@ -23,7 +23,7 @@ export default{
 }
 </script>
 
-<style scoped>
+<style scoped>/* scopedをつけることでApp.vueのみに適用する */
   div{
     border: 1px solid red;
   }
