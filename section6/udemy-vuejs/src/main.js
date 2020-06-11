@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue' // <= renderに渡す「App」はコレ。「単一ファイルコンポーネント」と呼ばれるもの。
-
-
-console.log(App);
+import LikeNum from './LikeNum.vue'
 
 Vue.config.productionTip = false
+
+Vue.component('LikeNum', LikeNum)
 
 new Vue({
   render: h => h(App),
