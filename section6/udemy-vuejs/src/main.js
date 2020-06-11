@@ -1,5 +1,8 @@
 import Vue from 'vue'
-import App from './App.vue' // <= renderに渡す「App」はコレ
+import App from './App.vue' // <= renderに渡す「App」はコレ。「単一ファイルコンポーネント」と呼ばれるもの。
+
+
+console.log(App);
 
 Vue.config.productionTip = false
 
