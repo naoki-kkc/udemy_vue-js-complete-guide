@@ -4,6 +4,7 @@ import LikeNum from './LikeNum.vue'
 
 Vue.config.productionTip = false
 
+// コンポーネントのグローバル登録
 Vue.component('LikeNum', LikeNum)
 
 new Vue({
