@@ -19,3 +19,9 @@ export default{
     }
 }
 </script>
+
+<style scoped>/* scopedをつけることでLikeNum.vueのみに適用する */
+  div{
+    border: 1px solid blue;
+  }
+</style>
