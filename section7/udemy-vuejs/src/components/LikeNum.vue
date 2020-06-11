@@ -7,7 +7,18 @@
 
 <script>
 export default{
-    props: ['totalNumber'],
+    
+    // propsを配列で指定
+    // props: ['totalNumber'],
+    
+    // propsをオブジェクトで指定
+    props :{
+        totalNumber: {
+            type:     Number,
+            default:  10
+        }
+    },
+
     computed:{
         halfnum(){
             return this.totalNumber / 2;

@@ -6,6 +6,8 @@
     <LikeNum v-bind:totalNumber="num"></LikeNum>
     <!-- 属性名をケバブケースで書く(こっちの方が良い) -->
     <LikeNum v-bind:total-number="num"></LikeNum>
+    <!-- totalNumberを指定していないのでデフォルトを使用する -->
+    <LikeNum></LikeNum>
   </div>
 </template>
 
